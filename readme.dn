@@ -1,0 +1,28 @@
+Task Manager — Spring Boot приложение, предоставляющее REST API для управления задачами.
+
+Приложение позволяет:
+- регистрировать пользователей;
+- аутентифицироваться с помощью JWT;
+- создавать, обновлять, удалять и просматривать задачи;
+- фильтровать задачи по статусу и срокам выполнения;
+- получать статистику и метрики работы системы.
+
+Технологический стек
+- Java 21
+- Spring Boot 3.x
+- Spring Web (REST API)
+- Spring Security + JWT
+- Spring Data JPA
+- PostgreSQL
+- Spring Boot Actuator
+- Logback
+- Maven
+
+Swagger / OpenAPI
+Документация API доступна по адресу:
+- /swagger-ui/index.html
+
+
+
+
+

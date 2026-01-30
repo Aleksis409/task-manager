@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: taskmanager
+
+  server:
+    port: 9090
+
+  datasource:
+    url: jdbc:postgresql://postgres:${DB_PORT:5432}/${DB_NAME:project}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: never
+
+  logging:
+    level:
+      org.springframework.web.filter.CommonsRequestLoggingFilter: INFO
+  #      org.springframework.security: DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    default-consumes-media-type: application/json
+
+jwt:
+  secret: "change-this-super-secret-key-which-is-at-least-256-bits"
+  access-expiration: 900000     # 15 min
+  refresh-expiration: 604800000 # 7 days
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when_authorized

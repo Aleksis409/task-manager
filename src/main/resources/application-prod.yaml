@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    # WARNING: DO NOT use default values in production!
+    # They are provided ONLY for demonstration purposes. In a real production environment, specify actual values.
+    url: jdbc:postgresql://localhost:${DB_PORT:5432}/${DB_NAME:project}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    show-sql: false
+
+  liquibase:
+    enabled: true
