@@ -2,8 +2,11 @@ spring:
   application:
     name: taskmanager
 
+  server:
+    port: 9090
+
   datasource:
-    url: jdbc:postgresql://localhost:${DB_PORT:5432}/${DB_NAME:project}
+    url: jdbc:postgresql://postgres:${DB_PORT:5432}/${DB_NAME:project}
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
